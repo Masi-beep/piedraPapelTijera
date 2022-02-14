@@ -10,5 +10,22 @@ function computerPlay() {
     }
 }
 
-let res = computerPlay();
-console.log(res);
+function playRound(playerSelection,computerSelection) {
+    let pS = playerSelection.toLowerCase();
+    let cS = computerSelection.toLowerCase();
+
+    if ((pS == "piedra" && cS == "tijera") ||
+        (pS == "tijera" && cS == "papel") ||
+        (pS == "papel" && cS == "piedra")) {
+        return `Ganaste, ${pS} le gana a ${cS}`;
+    } else if (pS == cS) {
+        return `Empate, ambos eligieron ${pS}`;
+    } else {
+        return `Perdiste, ${cS} le gana a ${pS}`;
+    }   
+}
+
+
+let playerSelection = "piedra";
+let computerSelection = computerPlay();
+console.log(playRound(playerSelection,computerSelection));
